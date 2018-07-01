@@ -16,7 +16,7 @@ struct FlickrPhoto {
     
     let owner: String
     let secret: String
-    let server: Int
+    let server: String
     let farm: Int
     
     /* Other properties keeping only for complete representation. */
@@ -43,7 +43,7 @@ struct FlickrPhoto {
             let _id = dictionary["id"] as? String,
             let _owner = dictionary["owner"] as? String,
             let _secret = dictionary["secret"] as? String,
-            let _server = dictionary["server"] as? Int,
+            let _server = dictionary["server"] as? String,
             let _farm = dictionary["farm"] as? Int else {
                 return nil
         }
@@ -66,9 +66,11 @@ struct FlickrPhoto {
 
 struct FlickrPhotosResult {
     let pageNumber: Int
-    let totalPages: Int
     let numberOfPhotosPerPage: Int
-    let totalPhotos: Int
+
+    let totalPages: Double
+    let totalPhotos: Double
+   
     let photos: [FlickrPhoto]
     
     init?(dictionary: JSONDictionary) {
@@ -77,10 +79,18 @@ struct FlickrPhotosResult {
         }
         
         self.pageNumber = (body["page"] as? Int) ?? -1
-        self.totalPages = (body["pages"] as? Int) ?? -1
-        self.totalPhotos = (body["total"] as? Int) ?? -1
+
         self.numberOfPhotosPerPage = (body["perpage"] as? Int) ?? -1
         
+        self.totalPages = (body["pages"] as? Double) ?? -1
+        
+        
+        if let strVal = body["total"] as? String, let doubleVal = Double(strVal){
+            self.totalPhotos = doubleVal
+        }else {
+            self.totalPhotos = -1
+        }
+
         if let photosArr = body["photo"] as? [JSONDictionary] {
             photos = photosArr.compactMap{FlickrPhoto(dictionary: $0)}
         }else {

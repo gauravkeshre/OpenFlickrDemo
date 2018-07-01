@@ -31,6 +31,7 @@
 		E2FFF36720E912D800E173A0 /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFF36620E912D800E173A0 /* UIImageView+URL.swift */; };
 		E2FFF36920E91CDB00E173A0 /* ServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFF36820E91CDB00E173A0 /* ServicesProtocol.swift */; };
 		E2FFF36B20E9296A00E173A0 /* Flickr+HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFF36A20E9296A00E173A0 /* Flickr+HTTP.swift */; };
+		E2FFF36F20E933D100E173A0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFF36E20E933D100E173A0 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		E2FFF36620E912D800E173A0 /* UIImageView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
 		E2FFF36820E91CDB00E173A0 /* ServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProtocol.swift; sourceTree = "<group>"; };
 		E2FFF36A20E9296A00E173A0 /* Flickr+HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flickr+HTTP.swift"; sourceTree = "<group>"; };
+		E2FFF36E20E933D100E173A0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				E255AF3720E833B500F0AFD5 /* NetworkingAbstraction.swift */,
+				E2FFF36E20E933D100E173A0 /* API.swift */,
 				E2FFF36820E91CDB00E173A0 /* ServicesProtocol.swift */,
 				E255AF3920E833C100F0AFD5 /* FlickrService.swift */,
 			);
@@ -417,6 +420,7 @@
 				E2FFF36120E8FF4600E173A0 /* UITextField+LeftView.swift in Sources */,
 				E2FFF36720E912D800E173A0 /* UIImageView+URL.swift in Sources */,
 				E2FFF35A20E8E98C00E173A0 /* ImageCacheManager.swift in Sources */,
+				E2FFF36F20E933D100E173A0 /* API.swift in Sources */,
 				E255AF3820E833B500F0AFD5 /* NetworkingAbstraction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

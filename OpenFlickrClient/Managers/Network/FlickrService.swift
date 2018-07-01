@@ -9,8 +9,13 @@
 import Foundation
 
 class FlickrService: ServiceProtocol {
-    static func fetchFlickrPhoto(tag: String, onCompletion: @escaping (APIResult<FlickrPhotoResponse>) -> ()) -> CancelableTask? {
-     return nil
+    static func fetchFlickrPhoto(tag: String, page: Int, onCompletion completion: @escaping (APIResult<FlickrPhotoResponse>) -> ()) -> CancelableTask? {
+        
+        let req = FlickrPhotoRequest(keyword: "dog", pageNo: page)
+        let task = API.sendRequest(request: req) { (res) in
+            completion(res)
+        }
+     return task
     }
 }
 

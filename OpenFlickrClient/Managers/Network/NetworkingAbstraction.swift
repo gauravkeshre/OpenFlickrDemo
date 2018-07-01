@@ -44,19 +44,21 @@ protocol Response {
     static func parse(dictionary: JSONDictionary) -> Self
 }
 
-enum ResponseError: StringLiteralType, Error {
+enum ResponseError: Error {
     case invalidURL  /** URL was invalic */
     case empty       /** Received an empty response */
     case invalidData  /** Invalid JSON that could not be parsed */
     case unknown      /** Couldn't resolve the error */
-
+    case custom (String)
     var message: String {
         switch self {
+        case .custom(let str):
+            return str
         case .empty:
             return "Received an empty response"
         case .invalidURL:
             return "There was some error in forming the request. Please try again after some time"
-        case .invalidData
+        case .invalidData:
             return "Invalid JSON that could not be parsed"
         default:
             return "Something went wrong"
@@ -74,42 +76,6 @@ enum APIResult<Res: Response> {
 }
 
 protocol CancelableTask {
-    func cancel()
+    func cancelTask()
 }
 
-
-final class API {
-
-    func SendRequest<R: Request, T>(request: R,
-                                        showHUD: Bool = true,
-                                        onCompletion completion: @escaping CompletionCallback<T>
-        ) -> CancelableTask? {
-        
-        
-      
-        guard let url = URL(string: request.finalURL) else {
-            completion(APIResult.failure(.empty))
-            return nil
-        }
-        
-        
-        let dataTask = URLSession.shared.dataTask(with: url) { (data, response, err) in
-            guard error == nil,
-                let data = data else {
-                callback(.failure, nil);
-                return
-            }
-            
-        }
-        if let body = request.resource.body {
-            nRes = nRes.query(body)
-        }
-        
-        print(nRes.printDetails())
-        nRes.load { (response) in
-            HandleResponse(response: response, showHUD: showHUD, onCompletion: completion)
-        }
-        
-        return nRes
-    }
-}

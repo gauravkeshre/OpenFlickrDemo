@@ -40,7 +40,14 @@ extension ImageSearchController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+        _ = FlickrService.fetchFlickrPhoto(tag: "dogs", page: 1) { (result) in
+            switch result {
+            case .success( let response):
+                print("response: \(response)")
+            case .failure (let err):
+                print("error: \(err.message)")
+            }
+        }
         return true
     }
 }

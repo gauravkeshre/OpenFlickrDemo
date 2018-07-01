@@ -9,6 +9,8 @@
 import Foundation
 
 protocol ServiceProtocol {
-//    @discardableResult
-    static func  fetchFlickrPhoto(tag: String, onCompletion: @escaping CompletionCallback<FlickrPhotoResponse>) -> CancelableTask?
+    
+    @discardableResult
+    static func fetchFlickrPhoto(tag: String, page: Int, onCompletion completion: @escaping (APIResult<FlickrPhotoResponse>) -> ()) -> CancelableTask?
+    
 }
