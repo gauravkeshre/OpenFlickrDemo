@@ -19,8 +19,9 @@ final class API {
             completion(APIResult.failure(.invalidURL))
             return nil
         }
-        
-        
+        print("****************************")
+        print("** URL: \(url)")
+        print("****************************")
         let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let err = error {
                 completion(APIResult.failure(.custom(err.localizedDescription)))

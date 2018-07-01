@@ -12,6 +12,7 @@ final class ImageCell: UICollectionViewCell {
     @IBOutlet private weak var imageView : UIImageView!
     @IBOutlet private weak var activityIndicator : UIActivityIndicatorView!
     
+    
     private var isLoading: Bool = false{
         didSet {
             DispatchQueue.main.async {
@@ -26,6 +27,14 @@ final class ImageCell: UICollectionViewCell {
         }
     }
     
+    //MARK:- LifeCycle Methods
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.cornerRadius = 4
+        self.layer.masksToBounds = true
+    }
+    
+    //MARK:- Public Methods
     func configure(_ data: FlickrPhoto) {
         imageView.loadImage(fromURL: data.imageURL, placeholder: #imageLiteral(resourceName: "bg_placeholder")) { (status, _) in
             if case .downloading = status {

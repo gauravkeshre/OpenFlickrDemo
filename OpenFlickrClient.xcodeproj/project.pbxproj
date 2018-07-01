@@ -32,6 +32,8 @@
 		E2FFF36920E91CDB00E173A0 /* ServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFF36820E91CDB00E173A0 /* ServicesProtocol.swift */; };
 		E2FFF36B20E9296A00E173A0 /* Flickr+HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFF36A20E9296A00E173A0 /* Flickr+HTTP.swift */; };
 		E2FFF36F20E933D100E173A0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFF36E20E933D100E173A0 /* API.swift */; };
+		E2FFF37120E951AD00E173A0 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FFF37020E951AD00E173A0 /* HUD.swift */; };
+		E2FFF37420E951C900E173A0 /* HUD.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FFF37320E951C900E173A0 /* HUD.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		E2FFF36820E91CDB00E173A0 /* ServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProtocol.swift; sourceTree = "<group>"; };
 		E2FFF36A20E9296A00E173A0 /* Flickr+HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flickr+HTTP.swift"; sourceTree = "<group>"; };
 		E2FFF36E20E933D100E173A0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E2FFF37020E951AD00E173A0 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		E2FFF37320E951C900E173A0 /* HUD.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HUD.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,7 @@
 		E255AF1720E82FB000F0AFD5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E2FFF37220E951B500E173A0 /* HUD */,
 				E255AF1820E82FB000F0AFD5 /* Home */,
 			);
 			path = Scenes;
@@ -271,6 +276,15 @@
 				E2FFF35220E8E1E200E173A0 /* Constants+Layout.swift */,
 			);
 			path = Constnts;
+			sourceTree = "<group>";
+		};
+		E2FFF37220E951B500E173A0 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				E2FFF37020E951AD00E173A0 /* HUD.swift */,
+				E2FFF37320E951C900E173A0 /* HUD.xib */,
+			);
+			path = HUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +394,7 @@
 				E255AEF320E82E4B00F0AFD5 /* LaunchScreen.storyboard in Resources */,
 				E255AEF020E82E4B00F0AFD5 /* Assets.xcassets in Resources */,
 				E2FFF35F20E8F50F00E173A0 /* TestAssets.xcassets in Resources */,
+				E2FFF37420E951C900E173A0 /* HUD.xib in Resources */,
 				E255AEEE20E82E4900F0AFD5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +436,7 @@
 				E2FFF36720E912D800E173A0 /* UIImageView+URL.swift in Sources */,
 				E2FFF35A20E8E98C00E173A0 /* ImageCacheManager.swift in Sources */,
 				E2FFF36F20E933D100E173A0 /* API.swift in Sources */,
+				E2FFF37120E951AD00E173A0 /* HUD.swift in Sources */,
 				E255AF3820E833B500F0AFD5 /* NetworkingAbstraction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
