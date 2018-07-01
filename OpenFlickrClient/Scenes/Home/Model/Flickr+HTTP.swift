@@ -27,8 +27,9 @@ struct FlickrPhotoRequest: Request {
                                    "method": "flickr.photos.search"]
     
     init(keyword: String?, pageNo: Int) {
+        let escapedString = keyword?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         self.params? ["page"] = pageNo
-        if let keyword = keyword {
+        if let keyword = escapedString {
             self.params?["text"] = keyword
         }
     }
@@ -50,3 +51,4 @@ struct FlickrPhotoResponse: Response {
                                    body: body)
     }
 }
+

@@ -75,7 +75,7 @@ extension ImageSearchController {
         }
         
         task?.cancelTask()
-        
+        HUD.show(on: self)
         task = FlickrService.fetchFlickrPhoto(tag: search.keyword, page: search.pageNumber) { (result) in
             switch result {
             case .success( let response):
@@ -90,9 +90,11 @@ extension ImageSearchController {
                 DispatchQueue.main.async {
                     // to be improved
                     self.collectionView.reloadData()
+                    HUD.hide()
                 }
             case .failure (let err):
                 print("error: \(err.message)")
+                HUD.hide()
             }
         }
     }
@@ -164,7 +166,7 @@ extension ImageSearchController: UICollectionViewDataSource, UICollectionViewDel
         if indexPath.section == 0 {
             var size = collectionView.bounds.size
             size.width = size.width - CGFloat( 2 * Constants.PaddingBetweenItems)
-            size.height = 0
+            size.height = 110
             return size
         }
         return cellSize
