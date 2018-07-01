@@ -51,7 +51,9 @@ extension UIImageView {
         callback(.downloading, nil)
         let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard error == nil, let imgData = data, let image = UIImage(data: imgData) else {
-                self.image = placeholder
+                DispatchQueue.main.async {
+                    self.image = placeholder
+                }
                 callback(.failure, nil);
                 return
             }
