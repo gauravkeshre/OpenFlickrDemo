@@ -28,7 +28,6 @@ final class HUD: UIView {
     }
 
     
-    
     static func show(on presenter: UIView) {
         HUD.instance.removeFromSuperview()
         HUD.instance.frame = presenter.bounds

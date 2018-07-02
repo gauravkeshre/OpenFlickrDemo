@@ -10,10 +10,24 @@ import Foundation
 import UIKit
 
 extension UICollectionView {
+
+/** Returns the estimated cell size (*square*) requrired to fit `numberOfItemsPerRow` in one row.
+ - Parameters:
+    - numberOfItemsPerRow: Int, number of cells we need to fit in one row. While at the same time respecting `minimumInterItemSpacing`
+ - Important:
+     - This method assumes that the collectionview layout is `UICollectionViewFlowLayout`
+ */
+func itemSize(numberOfItemsPerRow count: Int = Constants.CellsPerRow) -> CGSize {
+    let itemSpacing: CGFloat
     
-    func itemSize(numberOfItemsPerRow count: Int = Constants.CellsPerRow, paddingBetweenItems padding: Int = Constants.PaddingBetweenItems) -> CGSize {
-        let totalPadding = CGFloat((count + 1) * padding)
-        let width = floor((self.bounds.width - totalPadding) / CGFloat(count))
-        return CGSize(width: width, height: width)
+    if let pad = (self.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing {
+        itemSpacing = pad
+    }else {
+        itemSpacing = 0
     }
+    
+    let totalPadding = CGFloat(count + 1) * itemSpacing
+    let width = floor((self.bounds.width - totalPadding) / CGFloat(count))
+    return CGSize(width: width, height: width)
+}
 }

@@ -42,7 +42,7 @@ final class ImageSearchController: UIViewController {
     private var currentSearch: Search!
     
     private lazy var cellSize: CGSize = {
-        return self.collectionView.itemSize(numberOfItemsPerRow: Constants.CellsPerRow, paddingBetweenItems: Constants.PaddingBetweenItems)
+        return self.collectionView.itemSize(numberOfItemsPerRow: Constants.CellsPerRow)
     }()
     
     private lazy var headerSize: CGSize = {
