@@ -109,21 +109,24 @@ private extension ImageSearchController {
                 /** Increment only if the request was successfull */
                 self.currentSearch.incrementPage()
                 
-                /** If this was a fresh search. Just clean existing data source array */
-                if refresh {
-                    self.arrPhotos.removeAll()
-                }
                 
-                /** Insert new indexPaths in the collectionview. that offsets from `arrPhotos.count` till new  `arrPhotos.count + photos. count -1` */
-                let startIndex = self.arrPhotos.count
-                self.arrPhotos.append(contentsOf: photos)
-                let endIndex = self.arrPhotos.count - 1
                 
                 toggleHUD(visible: false)
                 DispatchQueue.main.async {
                     // to be improved
                     
                     self.collectionView.performBatchUpdates({
+                        /** If this was a fresh search. Just clean existing data source array */
+                        if refresh {
+                            self.arrPhotos.removeAll()
+                        }
+                        
+                        /** Insert new indexPaths in the collectionview. that offsets from `arrPhotos.count` till new  `arrPhotos.count + photos. count -1` */
+                        let startIndex = self.arrPhotos.count
+                        
+                        self.arrPhotos.append(contentsOf: photos)
+                        let endIndex = self.arrPhotos.count - 1
+
                         let indexPaths = Array(startIndex...endIndex).map { IndexPath(item: $0, section: 1) }
                         self.collectionView.insertItems(at: indexPaths)
                     }, completion: nil)
@@ -172,7 +175,6 @@ extension ImageSearchController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return section == 0 ? 1 : arrPhotos.count
     }
     

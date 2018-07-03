@@ -12,6 +12,7 @@ final class ImageCell: UICollectionViewCell {
     @IBOutlet private weak var imageView : UIImageView!
     @IBOutlet private weak var activityIndicator : UIActivityIndicatorView!
     
+    private var imageDownloadingTask: CancelableTask?
     
     private var isLoading: Bool = false{
         didSet {
@@ -36,7 +37,9 @@ final class ImageCell: UICollectionViewCell {
     
     //MARK:- Public Methods
     func configure(_ data: FlickrPhoto) {
-        imageView.loadImage(fromURL: data.imageURL, placeholder: #imageLiteral(resourceName: "bg_placeholder")) { (status, _) in
+        self.imageView.image = #imageLiteral(resourceName: "bg_loading")
+        imageDownloadingTask?.cancelTask()
+        imageDownloadingTask = imageView.loadImage(fromURL: data.imageURL, placeholder: #imageLiteral(resourceName: "bg_placeholder")) { (status, _) in
             if case .downloading = status {
                 self.isLoading = true
             }else {

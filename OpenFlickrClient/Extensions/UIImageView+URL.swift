@@ -27,11 +27,11 @@ extension UIImageView {
      */
     func loadImage(fromURL imageurl: String?,
                    placeholder: UIImage? = nil,
-                   onCompletion callback: @escaping ImageLoadingCallback) {
+                   onCompletion callback: @escaping ImageLoadingCallback) -> CancelableTask?{
         guard let strURL = imageurl else {
             self.image = placeholder
             callback(.failure, nil);
-            return
+            return nil
         }
         
         if let image = ImageCacheManager.shared.fetchImage(forKey: strURL) {
@@ -39,13 +39,13 @@ extension UIImageView {
                 self.image = image
             }
             callback(.foundInCache, image)
-            return
+            return nil
         }
         
         guard let url = URL(string: strURL) else {
             self.image = placeholder
             callback(.failure, nil);
-            return
+            return nil
         }
         
         callback(.downloading, nil)
@@ -67,5 +67,6 @@ extension UIImageView {
             callback(.success, image)
         }
         dataTask.resume()
+        return dataTask
     }
 }
