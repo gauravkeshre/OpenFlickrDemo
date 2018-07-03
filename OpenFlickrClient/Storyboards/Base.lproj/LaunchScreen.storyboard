@@ -37,7 +37,7 @@ Flickr Client</string>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-flickr" translatesAutoresizingMaskIntoConstraints="NO" id="wUc-bG-WK5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flickr-logo" translatesAutoresizingMaskIntoConstraints="NO" id="wUc-bG-WK5">
                                 <rect key="frame" x="98" y="123.5" width="180" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wUc-bG-WK5" secondAttribute="height" id="Lua-EM-WJQ"/>
@@ -63,6 +63,6 @@ Flickr Client</string>
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-flickr" width="96" height="96"/>
+        <image name="flickr-logo" width="640" height="640"/>
     </resources>
 </document>
