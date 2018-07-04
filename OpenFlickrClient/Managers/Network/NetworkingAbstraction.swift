@@ -19,6 +19,10 @@ protocol Request {
 }
 
 extension Request {
+    
+    /** Forms a url based on the HTTP Method.
+     For this version, we only consider the GET method and rest all return the `self`
+     */
     var finalURL: String {
         switch verb.lowercased() {
         case "get":

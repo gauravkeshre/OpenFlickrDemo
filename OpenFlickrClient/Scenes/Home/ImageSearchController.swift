@@ -37,6 +37,8 @@ final class ImageSearchController: UIViewController {
     /** Keeping track of the presently running `NSURLSessionTask`. We will need to cancel the presnet task as the user types and enters */
     private var task: CancelableTask?
     
+    private var service: ServiceProtocol.Type!
+    
     /** DataStore */
     private var arrPhotos: [FlickrPhoto] = []
     private var currentSearch: Search!
@@ -58,6 +60,8 @@ final class ImageSearchController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /** Inject Default Service */
+        self.service = FlickrService.self
         
         /** UITextField UI Setup */
         let image = UIImage(named: "icons8-search")?.withRenderingMode(.alwaysTemplate)
@@ -97,7 +101,7 @@ private extension ImageSearchController {
         
         task?.cancelTask()
         toggleHUD()
-        task = FlickrService.fetchFlickrPhoto(tag: search.keyword, page: search.pageNumber) { (result) in
+        task = service.fetchFlickrPhoto(tag: search.keyword, page: search.pageNumber) { (result) in
             switch result {
             case .success( let response):
                 guard let photos = response.body?.photos else {
@@ -148,9 +152,10 @@ private extension ImageSearchController {
     
     @IBAction
     func handleGoButton(_ sender: UIButton) {
-        guard let text = txtSearch.text, text.count > 0 else {
+        guard let text = txtSearch.text, text.count > 1 else {
             return
         }
+        
         triggerSearch(Search(keyword: text, pageNumber: 1))
     }
 }

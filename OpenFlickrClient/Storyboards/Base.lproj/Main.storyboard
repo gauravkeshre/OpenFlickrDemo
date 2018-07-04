@@ -86,7 +86,7 @@
                                     <outlet property="delegate" destination="npS-O5-0UR" id="00E-zO-uvK"/>
                                 </connections>
                             </collectionView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search..." minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kne-cj-4Sc">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search..." minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Kne-cj-4Sc">
                                 <rect key="frame" x="16" y="36" width="343" height="54"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>

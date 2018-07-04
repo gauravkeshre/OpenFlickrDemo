@@ -8,8 +8,10 @@
 
 import Foundation
 
+
+/** This simple protocol is the group of all the APIs in the application.  */
 protocol ServiceProtocol {
-    
+
     @discardableResult
     static func fetchFlickrPhoto(tag: String, page: Int, onCompletion completion: @escaping (APIResult<FlickrPhotoResponse>) -> ()) -> CancelableTask?
     
