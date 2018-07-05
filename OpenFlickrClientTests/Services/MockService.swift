@@ -9,13 +9,13 @@
 import UIKit
 @testable import OpenFlickrClient
 
-class MockService: ServiceProtocol {
-    
-    @discardableResult
-    static func fetchFlickrPhoto(tag: String, page: Int, onCompletion completion: @escaping (APIResult<FlickrPhotoResponse>) -> ()) -> CancelableTask? {
-        
-let response = FlickrPhotoResponse.parse(dictionary: <#T##JSONDictionary#>)
-        
-    }
-
-}
+//class MockService: ServiceProtocol {
+//    
+//    @discardableResult
+//    static func fetchFlickrPhoto(tag: String, page: Int, onCompletion completion: @escaping (APIResult<FlickrPhotoResponse>) -> ()) -> CancelableTask? {
+//        
+//
+//        
+//    }
+//
+//}

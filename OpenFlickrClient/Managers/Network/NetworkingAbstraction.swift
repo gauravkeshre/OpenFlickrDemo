@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias JSONDictionary = [String: Any]
+typealias JSONDictionary = [String: Any?]
 typealias CompletionCallback<R: Response> = (_ response: APIResult<R>) -> ()
 
 /** Request. A protocol that defines a somple request model. Note that this is  */

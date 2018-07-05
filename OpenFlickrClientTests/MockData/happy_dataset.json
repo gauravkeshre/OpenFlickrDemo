@@ -1,0 +1,66 @@
+{
+    "photos": {
+        "page": 20,
+        "pages": 6997,
+        "perpage": 100,
+        "total": "699672",
+        "photo": [
+                  {
+                  "id": "42272571325",
+                  "owner": "85921430@N02",
+                  "secret": "26abc28e76",
+                  "server": "1765",
+                  "farm": 2,
+                  "title": "Deputada Janete de Sá - Sessão Ordinária + Tribuna Popular - 03.07.2018",
+                  "ispublic": 1,
+                  "isfriend": 0,
+                  "isfamily": 0
+                  },
+                  {
+                  "id": "42272571005",
+                  "owner": "85921430@N02",
+                  "secret": "8c17b9efd0",
+                  "server": "845",
+                  "farm": 1,
+                  "title": "Deputado José Esmeraldo - Sessão Ordinária + Tribuna Popular - 03.07.2018",
+                  "ispublic": 1,
+                  "isfriend": 0,
+                  "isfamily": 0
+                  },
+                  {
+                  "id": "43126966352",
+                  "owner": "85921430@N02",
+                  "secret": "af1cc69e96",
+                  "server": "1804",
+                  "farm": 2,
+                  "title": "Deputado Marcelo Santos - Sessão Ordinária + Tribuna Popular - 03.07.2018",
+                  "ispublic": 1,
+                  "isfriend": 0,
+                  "isfamily": 0
+                  },
+                  {
+                  "id": "43126966572",
+                  "owner": "85921430@N02",
+                  "secret": "4330d17229",
+                  "server": "1782",
+                  "farm": 2,
+                  "title": "Deputado Marcelo Santos - Sessão Ordinária + Tribuna Popular - 03.07.2018",
+                  "ispublic": 1,
+                  "isfriend": 0,
+                  "isfamily": 0
+                  },
+                  {
+                  "id": "42272569085",
+                  "owner": "85921430@N02",
+                  "secret": "e18b0f5c83",
+                  "server": "913",
+                  "farm": 1,
+                  "title": "Deputado Marcos Bruno - Sessão Ordinária + Tribuna Popular - 03.07.2018",
+                  "ispublic": 1,
+                  "isfriend": 0,
+                  "isfamily": 0
+                  }
+                  ]
+    },
+    "stat": "ok"
+}

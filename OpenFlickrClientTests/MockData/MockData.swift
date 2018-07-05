@@ -14,6 +14,7 @@ typealias JSONDictionary = [String: Any?]
 /** An enum to make it convenient to mock the data and organize it */
 enum MockData: String {
     case happy = "happy"
+    case resultWithoutPhotos = "resultWithoutPhotos"
     case empty = "empty"
     
     
