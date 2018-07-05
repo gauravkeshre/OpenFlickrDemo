@@ -10,7 +10,7 @@ import UIKit
 
 final class HUD: UIView {
     @IBOutlet private weak var centerView : UIView!
-
+    
     
     /** Instance */
     static let instance: UIView = {
@@ -26,7 +26,7 @@ final class HUD: UIView {
         centerView.layer.cornerRadius = centerView.bounds.width/2
         super.layoutSubviews()
     }
-
+    
     
     static func show(on presenter: UIView) {
         HUD.instance.removeFromSuperview()
@@ -34,12 +34,24 @@ final class HUD: UIView {
         presenter.addSubview(HUD.instance)
     }
     
+    static func toggle(to shouldShow: Bool, on presenter: UIViewController) {
+        if shouldShow {
+            show(on: presenter)
+        }else {
+            hide()
+        }
+    }
+    
     static func show(on presenter: UIViewController) {
-        show(on: presenter.view)
+        DispatchQueue.main.async {
+            show(on: presenter.view)
+        }
     }
     
     static func hide() {
-        HUD.instance.removeFromSuperview()
+        DispatchQueue.main.async {
+            HUD.instance.removeFromSuperview()
+        }
     }
     
 }

@@ -66,12 +66,17 @@ final class ImageSearchController: UIViewController {
         /** UITextField UI Setup */
         let image = UIImage(named: "icons8-search")?.withRenderingMode(.alwaysTemplate)
         self.txtSearch.addLeftImage(image, tint: UIColor.lightGray.withAlphaComponent(0.5))
-        txtSearch.decorateWithCornerRadius()
+        
         
         
         /** Fetch Intial images with "popular tag" */
         txtSearch.text = "popular"
         triggerSearch(Search(keyword: "popular", pageNumber: 1))
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        txtSearch.decorateWithCornerRadius()
+        
     }
 }
 
@@ -81,14 +86,7 @@ private extension ImageSearchController {
     func triggerSearch(_ search: Search, showHUD: Bool = true) {
         func toggleHUD(visible: Bool = true) {
             guard showHUD else { return }
-            DispatchQueue.main.async {
-                
-                if visible {
-                    HUD.show(on: self)
-                }else {
-                    HUD.hide()
-                }
-            }
+            HUD.toggle(to: visible, on: self)
         }
         
         /** Check if this is just a page number update or a new keyword.
@@ -116,14 +114,19 @@ private extension ImageSearchController {
                 
                 
                 toggleHUD(visible: false)
+                
+               
+                
                 DispatchQueue.main.async {
-                    // to be improved
+                    /** If this was a fresh search. Just clean existing data source array */
+                    if refresh {
+                        self.arrPhotos.removeAll()
+                        self.arrPhotos.append(contentsOf: photos)
+                        self.collectionView.reloadData()
+                        return
+                    }
                     
                     self.collectionView.performBatchUpdates({
-                        /** If this was a fresh search. Just clean existing data source array */
-                        if refresh {
-                            self.arrPhotos.removeAll()
-                        }
                         
                         /** Insert new indexPaths in the collectionview. that offsets from `arrPhotos.count` till new  `arrPhotos.count + photos. count -1` */
                         let startIndex = self.arrPhotos.count

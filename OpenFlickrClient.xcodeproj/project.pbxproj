@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E218E29F20EE370000F1142C /* resultWithoutPhotos_dataset.json in Resources */ = {isa = PBXBuildFile; fileRef = E218E29E20EE351700F1142C /* resultWithoutPhotos_dataset.json */; };
+		E218E2A120EE66A600F1142C /* CALayer+Removesublayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E218E2A020EE66A600F1142C /* CALayer+Removesublayer.swift */; };
 		E255AEE720E82E4900F0AFD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255AEE620E82E4900F0AFD5 /* AppDelegate.swift */; };
 		E255AEEE20E82E4900F0AFD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E255AEEC20E82E4900F0AFD5 /* Main.storyboard */; };
 		E255AEF020E82E4B00F0AFD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E255AEEF20E82E4B00F0AFD5 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		E218E29E20EE351700F1142C /* resultWithoutPhotos_dataset.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = resultWithoutPhotos_dataset.json; sourceTree = "<group>"; };
+		E218E2A020EE66A600F1142C /* CALayer+Removesublayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Removesublayer.swift"; sourceTree = "<group>"; };
 		E255AEE320E82E4900F0AFD5 /* OpenFlickrClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenFlickrClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E255AEE620E82E4900F0AFD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E255AEED20E82E4900F0AFD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				E2FFF36220E9046C00E173A0 /* UIColor+App.swift */,
 				E2FFF36420E904D600E173A0 /* UIView+Decoration.swift */,
 				E2FFF36620E912D800E173A0 /* UIImageView+URL.swift */,
+				E218E2A020EE66A600F1142C /* CALayer+Removesublayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				E2FFF36920E91CDB00E173A0 /* ServicesProtocol.swift in Sources */,
 				E255AF3220E830B400F0AFD5 /* ImageCell.swift in Sources */,
 				E2FFF36120E8FF4600E173A0 /* UITextField+LeftView.swift in Sources */,
+				E218E2A120EE66A600F1142C /* CALayer+Removesublayer.swift in Sources */,
 				E2FFF36720E912D800E173A0 /* UIImageView+URL.swift in Sources */,
 				E2FFF35A20E8E98C00E173A0 /* ImageCacheManager.swift in Sources */,
 				E2FFF36F20E933D100E173A0 /* API.swift in Sources */,

@@ -65,14 +65,19 @@ extension UIView {
                 layer.shadowRadius  = 0
             }
         } else {
-            
+            let cornerRadiusLayer: CAShapeLayer
+            if let lyr = layer.sublayer(named: DecorationConstants.ShapeLayerName) as? CAShapeLayer {
+                cornerRadiusLayer = lyr
+            }else {
+                cornerRadiusLayer = CAShapeLayer()
+                layer.removeSublayers(names: DecorationConstants.ShapeLayerName)
+            }
 
             let rectanglePath =  UIBezierPath(roundedRect: self.bounds,
                                               byRoundingCorners: roundedCorners,
                                               cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
             layer.masksToBounds = false
             
-            let cornerRadiusLayer: CAShapeLayer = CAShapeLayer()
             
             cornerRadiusLayer.name = DecorationConstants.ShapeLayerName
             cornerRadiusLayer.fillColor = self.backgroundColor?.cgColor
@@ -81,8 +86,9 @@ extension UIView {
             cornerRadiusLayer.strokeColor = borderColor.cgColor
             self.layer.insertSublayer(cornerRadiusLayer, at: 0)
             
-            self.backgroundColor = .clear
+//            self.backgroundColor = .white
             
+            layer.removeSublayers(names: DecorationConstants.ShadowLayerName)
             if enableShadow {
                 let shadowLayer: CAShapeLayer  = CAShapeLayer()
                 shadowLayer.name = DecorationConstants.ShadowLayerName
@@ -93,9 +99,7 @@ extension UIView {
                 shadowLayer.shadowColor = UIColor.black.cgColor
                 shadowLayer.shadowRadius = DecorationConstants.ShadowRadius
                 shadowLayer.shadowOpacity = DecorationConstants.ShadowOpacity
-                shadowLayer.insertSublayer(shadowLayer, below: cornerRadiusLayer)
-            }else {
-                ///Remove shadowLayer if it exists
+                self.layer.insertSublayer(shadowLayer, below: cornerRadiusLayer)
             }
         }
     }

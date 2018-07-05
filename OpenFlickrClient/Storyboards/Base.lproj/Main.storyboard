@@ -37,7 +37,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="111" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QyB-7s-8pk">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QyB-7s-8pk">
                                                     <rect key="frame" x="0.0" y="0.0" width="111" height="103"/>
                                                 </imageView>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9f6-1Y-Oi6">
@@ -100,12 +100,12 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69f-SI-07Q">
-                                <rect key="frame" x="309" y="43" width="40" height="40"/>
+                                <rect key="frame" x="315" y="43" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="69f-SI-07Q" secondAttribute="height" id="hDs-vO-eOV"/>
                                     <constraint firstAttribute="width" constant="40" id="kVg-Jk-ONt"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="ic_btn_enabled"/>
+                                <state key="normal" backgroundImage="ic_btn_enabled"/>
                                 <state key="disabled" image="ic_btn_disabled"/>
                                 <connections>
                                     <action selector="handleGoButton:" destination="npS-O5-0UR" eventType="touchUpInside" id="tPX-Il-kza"/>
@@ -122,8 +122,8 @@
                             <constraint firstItem="Kne-cj-4Sc" firstAttribute="leading" secondItem="2q5-fF-qi2" secondAttribute="leading" constant="16" id="gwb-3w-Sxu"/>
                             <constraint firstItem="2q5-fF-qi2" firstAttribute="trailing" secondItem="s5x-Qg-nu5" secondAttribute="trailing" id="o6a-Ru-lXP"/>
                             <constraint firstItem="69f-SI-07Q" firstAttribute="centerY" secondItem="Kne-cj-4Sc" secondAttribute="centerY" id="sT3-IU-KuX"/>
-                            <constraint firstItem="Kne-cj-4Sc" firstAttribute="trailing" secondItem="69f-SI-07Q" secondAttribute="trailing" constant="10" id="wYt-hg-YWw"/>
-                            <constraint firstItem="2q5-fF-qi2" firstAttribute="bottom" secondItem="s5x-Qg-nu5" secondAttribute="bottom" id="zWq-Wf-Hcd"/>
+                            <constraint firstItem="Kne-cj-4Sc" firstAttribute="trailing" secondItem="69f-SI-07Q" secondAttribute="trailing" constant="4" id="wYt-hg-YWw"/>
+                            <constraint firstAttribute="bottom" secondItem="s5x-Qg-nu5" secondAttribute="bottom" id="zWq-Wf-Hcd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2q5-fF-qi2"/>
                         <connections>
@@ -174,7 +174,7 @@
     </scenes>
     <resources>
         <image name="ic_btn_disabled" width="96" height="96"/>
-        <image name="ic_btn_enabled" width="96" height="96"/>
+        <image name="ic_btn_enabled" width="100" height="100"/>
         <image name="icons8-flickr-tab" width="32" height="32"/>
     </resources>
 </document>
