@@ -92,4 +92,23 @@ class FlickrPhotoModelTests: XCTestCase {
         XCTAssertNotNil(resultModel.photos)
         XCTAssertEqual(resultModel.photos.count,  0)
     }
+    
+    //MARK:- MissingValues
+    func testSerialization_missingValues() {
+        let resultModel = imageResultModel(for: .missingValues)
+        XCTAssertNotNil(resultModel)
+    }
+    
+    func testFlickrPhotosResultModel_missingValues() {
+        let resultModel  = imageResultModel(for: .missingValues)!
+        
+        XCTAssertEqual(resultModel.pageNumber,  -1)
+        XCTAssertEqual(resultModel.numberOfPhotosPerPage,  -1)
+        XCTAssertEqual(resultModel.totalPages,  -1)
+        XCTAssertEqual(resultModel.totalPhotos,  -1)
+        
+        XCTAssertNotNil(resultModel.photos)
+        XCTAssertEqual(resultModel.photos.count,  0)
+    }
+    
 }

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E218E29F20EE370000F1142C /* resultWithoutPhotos_dataset.json in Resources */ = {isa = PBXBuildFile; fileRef = E218E29E20EE351700F1142C /* resultWithoutPhotos_dataset.json */; };
+		E218E29F20EE370000F1142C /* result_without_photos.json in Resources */ = {isa = PBXBuildFile; fileRef = E218E29E20EE351700F1142C /* result_without_photos.json */; };
 		E218E2A120EE66A600F1142C /* CALayer+Removesublayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E218E2A020EE66A600F1142C /* CALayer+Removesublayer.swift */; };
+		E218E2A520EE7DBA00F1142C /* result_with_missing_values_dataset.json in Resources */ = {isa = PBXBuildFile; fileRef = E218E2A420EE7B1500F1142C /* result_with_missing_values_dataset.json */; };
 		E255AEE720E82E4900F0AFD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255AEE620E82E4900F0AFD5 /* AppDelegate.swift */; };
 		E255AEEE20E82E4900F0AFD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E255AEEC20E82E4900F0AFD5 /* Main.storyboard */; };
 		E255AEF020E82E4B00F0AFD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E255AEEF20E82E4B00F0AFD5 /* Assets.xcassets */; };
@@ -53,8 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E218E29E20EE351700F1142C /* resultWithoutPhotos_dataset.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = resultWithoutPhotos_dataset.json; sourceTree = "<group>"; };
+		E218E29E20EE351700F1142C /* result_without_photos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = result_without_photos.json; sourceTree = "<group>"; };
 		E218E2A020EE66A600F1142C /* CALayer+Removesublayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Removesublayer.swift"; sourceTree = "<group>"; };
+		E218E2A420EE7B1500F1142C /* result_with_missing_values_dataset.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = result_with_missing_values_dataset.json; sourceTree = "<group>"; };
 		E255AEE320E82E4900F0AFD5 /* OpenFlickrClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenFlickrClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E255AEE620E82E4900F0AFD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E255AEED20E82E4900F0AFD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -284,7 +286,8 @@
 			children = (
 				E2E3A02E20ED1F5F002A5AEB /* MockData.swift */,
 				E2E3A03020ED2005002A5AEB /* happy_dataset.json */,
-				E218E29E20EE351700F1142C /* resultWithoutPhotos_dataset.json */,
+				E218E2A420EE7B1500F1142C /* result_with_missing_values_dataset.json */,
+				E218E29E20EE351700F1142C /* result_without_photos.json */,
 				E2E3A03220ED2012002A5AEB /* empty_dataset.json */,
 			);
 			path = MockData;
@@ -402,8 +405,9 @@
 			files = (
 				E2FFF35E20E8EFCF00E173A0 /* TestAssets.xcassets in Resources */,
 				E2E3A03320ED2012002A5AEB /* empty_dataset.json in Resources */,
-				E218E29F20EE370000F1142C /* resultWithoutPhotos_dataset.json in Resources */,
+				E218E29F20EE370000F1142C /* result_without_photos.json in Resources */,
 				E2E3A03120ED2005002A5AEB /* happy_dataset.json in Resources */,
+				E218E2A520EE7DBA00F1142C /* result_with_missing_values_dataset.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

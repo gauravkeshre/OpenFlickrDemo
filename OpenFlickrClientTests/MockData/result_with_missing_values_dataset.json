@@ -1,0 +1,57 @@
+{
+    "photos": {
+        "page": null,
+        "pages": null,
+        "perpage": null,
+        "total": null,
+        "photo": [
+                  {
+                  "id": null,
+                  "owner": "85921430@N02",
+                  "secret": "26abc28e76",
+                  "server": "1765",
+                  "farm": 2,
+                  "title": "Deputada Janete de Sá - Sessão Ordinária + Tribuna Popular - 03.07.2018",
+                  "ispublic": 1,
+                  "isfriend": 0,
+                  "isfamily": 0
+                  },
+                  {
+                  "id": "42272571005",
+                  "owner": "85921430@N02",
+                  "secret": "8c17b9efd0",
+                  "server": null,
+                  "farm": 1,
+                  "title": "Deputado José Esmeraldo - Sessão Ordinária + Tribuna Popular - 03.07.2018",
+                  "ispublic": 1,
+                  "isfriend": 0,
+                  "isfamily": 0
+                  },
+                  {
+                  "id": "43126966352",
+                  "owner": "85921430@N02",
+                  "secret": "af1cc69e96",
+                  "server": "1804",
+                  "farm": null,
+                  "title": "Deputado Marcelo Santos - Sessão Ordinária + Tribuna Popular - 03.07.2018",
+                  "ispublic": 1,
+                  "isfriend": 0,
+                  "isfamily": 0
+                  },
+                  {
+                  "id": "43126966572",
+                  "owner": "85921430@N02",
+                  "server": "1782",
+                  "farm": 2,
+                  "title": "Deputado Marcelo Santos - Sessão Ordinária + Tribuna Popular - 03.07.2018",
+                  "ispublic": 1,
+                  "isfriend": 0,
+                  "isfamily": 0
+                  },
+                  {
+                  "id": "42272569085"
+                  }
+                  ]
+    },
+    "stat": "ok"
+}

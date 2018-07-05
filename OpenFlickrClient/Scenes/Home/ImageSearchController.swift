@@ -217,6 +217,4 @@ extension ImageSearchController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return indexPath.section == 0 ? headerSize : cellSize
     }
-    
-    
 }

@@ -14,8 +14,9 @@ typealias JSONDictionary = [String: Any?]
 /** An enum to make it convenient to mock the data and organize it */
 enum MockData: String {
     case happy = "happy"
-    case resultWithoutPhotos = "resultWithoutPhotos"
+    case resultWithoutPhotos = "result_without_photos"
     case empty = "empty"
+    case missingValues = "result_with_missing_values"
     
     
     func jsonDictionary() -> JSONDictionary {
