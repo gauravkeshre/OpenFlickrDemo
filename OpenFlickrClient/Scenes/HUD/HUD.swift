@@ -70,9 +70,8 @@ final class HUD: UIView {
      - presenter: UIView
      */
     static func hide(from presenter: UIView) {
-        guard HUD.instance.superview == presenter else { return }
-
         DispatchQueue.main.async {
+            guard HUD.instance.superview == presenter else { return }
             HUD.instance.removeFromSuperview()
         }
     }
@@ -88,8 +87,8 @@ extension HUD {
      - presenter: UIViewController controller's view is the superview
      */
     static func toggle(to shouldShow: Bool, on presenter: UIViewController) {
-        guard HUD.instance.superview == presenter.view else {
-            return
+        DispatchQueue.main.async {
+            guard HUD.instance.superview == presenter.view else { return }
         }
         if shouldShow {
             show(on: presenter)
