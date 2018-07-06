@@ -1,6 +1,11 @@
 # OpenFlickrClient
+![SWift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg?)
+
+
+[![codecov](https://codecov.io/gh/gauravkeshre/OpenFlickrDemo/branch/master/graph/badge.svg)](https://codecov.io/gh/gauravkeshre/OpenFlickrDemo)
+
+
 ----
-![SWift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg?style=for-the-badge)
 
 A very basic app developed to practice and demonstrate Unit testing. 
 
