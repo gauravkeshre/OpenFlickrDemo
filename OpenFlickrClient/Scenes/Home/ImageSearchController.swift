@@ -143,7 +143,7 @@ private extension ImageSearchController {
                 }
                 
             case .failure (let err):
-                print("error: \(err.message)")
+                print("Handle error: \(err.message)")
                 completion?()
                 toggleHUD(visible: false)
             }
