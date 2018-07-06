@@ -12,11 +12,6 @@ import XCTest
 
 class FlickrPhotoModelTests: XCTestCase {
 
-    func imageResultModel(for mock: MockData) -> FlickrPhotosResult? {
-        let mockData = mock.jsonDictionary()
-        XCTAssertNotNil(mockData)
-        return FlickrPhotosResult.init(dictionary: mockData)
-    }
     
     override func setUp() {
         super.setUp()
@@ -25,12 +20,12 @@ class FlickrPhotoModelTests: XCTestCase {
     
     //MARK:- Happy Dataset
     func testSerialization_happy() {
-        let resultModel  = imageResultModel(for: .happy)!
+        let resultModel  = MockData.imageResultModel(for: .happy)!
         XCTAssertNotNil(resultModel)
     }
     
     func testFlickrPhotosResultModel_happy () {
-        let resultModel  = imageResultModel(for: .happy)!
+        let resultModel  = MockData.imageResultModel(for: .happy)!
 
         XCTAssertEqual(resultModel.pageNumber,  20)
         XCTAssertEqual(resultModel.numberOfPhotosPerPage,  100)
@@ -40,7 +35,7 @@ class FlickrPhotoModelTests: XCTestCase {
     }
     
     func testFlickrPhotoModel_happy () {
-        let resultModel  = imageResultModel(for: .happy)!
+        let resultModel  = MockData.imageResultModel(for: .happy)!
         let model = resultModel.photos.first!
         
         XCTAssertNotNil(model)
@@ -52,11 +47,11 @@ class FlickrPhotoModelTests: XCTestCase {
         XCTAssertEqual(model.title, "Deputada Janete de Sá - Sessão Ordinária + Tribuna Popular - 03.07.2018")
         XCTAssertEqual(model.isPublic, true)
         XCTAssertEqual(model.isFriend, false)
-        XCTAssertEqual(model.isFamily, true)
+        XCTAssertEqual(model.isFamily, false)
     }
     
     func testFlickrPhotoURLConstruction_happy () {
-        let resultModel  = imageResultModel(for: .happy)!
+        let resultModel  = MockData.imageResultModel(for: .happy)!
         let model = resultModel.photos.last!
         
         XCTAssertNotNil(model)
@@ -69,20 +64,21 @@ class FlickrPhotoModelTests: XCTestCase {
     //MARK:- Empty Dataset
 
     func testSerialization_empty() {
-        let resultModel  = imageResultModel(for: .empty)
+        let resultModel  = MockData.imageResultModel(for: .empty)
         XCTAssertNil(resultModel)
     }
     
     
     //MARK:- ResultWithoutPhotos
     func testSerialization_noPhotos() {
-        let resultModel = imageResultModel(for: .resultWithoutPhotos)
+        
+        let resultModel = MockData.imageResultModel(for: .resultWithoutPhotos)
         XCTAssertNotNil(resultModel)
     }
     
     
     func testFlickrPhotosResultModel_noPhotos() {
-        let resultModel  = imageResultModel(for: .resultWithoutPhotos)!
+        let resultModel  = MockData.imageResultModel(for: .resultWithoutPhotos)!
         
         XCTAssertEqual(resultModel.pageNumber,  20)
         XCTAssertEqual(resultModel.numberOfPhotosPerPage,  100)
@@ -95,12 +91,12 @@ class FlickrPhotoModelTests: XCTestCase {
     
     //MARK:- MissingValues
     func testSerialization_missingValues() {
-        let resultModel = imageResultModel(for: .missingValues)
+        let resultModel = MockData.imageResultModel(for: .missingValues)
         XCTAssertNotNil(resultModel)
     }
     
     func testFlickrPhotosResultModel_missingValues() {
-        let resultModel  = imageResultModel(for: .missingValues)!
+        let resultModel  = MockData.imageResultModel(for: .missingValues)!
         
         XCTAssertEqual(resultModel.pageNumber,  -1)
         XCTAssertEqual(resultModel.numberOfPhotosPerPage,  -1)

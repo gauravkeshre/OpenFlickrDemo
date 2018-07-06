@@ -20,7 +20,7 @@ protocol ImageCacheProtocol {
 }
 
 /** A singleton class that abstract the details of how the images are being cached.
- For starters, we will store the images in `NSCache` but will upgrade to to file system in phase 2.
+ For starters, we will store the images in `Foundation.Cache` but will upgrade to to file system in phase 2.
  */
 final class ImageCacheManager: ImageCacheProtocol {
    

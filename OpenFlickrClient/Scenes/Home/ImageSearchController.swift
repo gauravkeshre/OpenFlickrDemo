@@ -8,21 +8,10 @@
 
 import UIKit
 
-struct Search: Equatable {
-    let keyword: String
-    var pageNumber: Int = -1
-    
-    @discardableResult
-    mutating func incrementPage() -> Search {
-        pageNumber = pageNumber + 1
-        return self
-    }
-    
-    /** Equatable */
-    static func == (lhs: Search, rhs: Search) -> Bool {
-        return lhs.keyword == rhs.keyword
-    }
-}
+
+typealias EmptyCallback = () -> ()
+
+
 
 
 final class ImageSearchController: UIViewController {
@@ -32,12 +21,17 @@ final class ImageSearchController: UIViewController {
     @IBOutlet private weak var txtSearch : UITextField!
     @IBOutlet private weak var btnGo : UIButton!
     
+    var service: ServiceProtocol.Type! {
+        willSet{
+            guard service != newValue else { return }
+            self.task?.cancelTask()
+        }
+    }
     
     //MARK:- Private Props
     /** Keeping track of the presently running `NSURLSessionTask`. We will need to cancel the presnet task as the user types and enters */
     private var task: CancelableTask?
     
-    private var service: ServiceProtocol.Type!
     
     /** DataStore */
     private var arrPhotos: [FlickrPhoto] = []
@@ -68,22 +62,29 @@ final class ImageSearchController: UIViewController {
         self.txtSearch.addLeftImage(image, tint: UIColor.lightGray.withAlphaComponent(0.5))
         
         
-        
         /** Fetch Intial images with "popular tag" */
         txtSearch.text = "popular"
         triggerSearch(Search(keyword: "popular", pageNumber: 1))
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         txtSearch.decorateWithCornerRadius()
-        
     }
 }
 
 /** Search */
 private extension ImageSearchController {
     
-    func triggerSearch(_ search: Search, showHUD: Bool = true) {
+/** This method abstracts the search process. Initiates the search using the `Service` type. THe methhod also identifies whether it is a fresh search or just a call to next page of the previous keyoword searck
+ - Parameters:
+     - search: Search
+     - showHUD: Bool, There are cases where we need to search silently without displaying a HHUD.
+     - completion: EmptyCallback. A callback that marks the completion of this method (API call + daa rendering)
+ */
+    
+    func triggerSearch(_ search: Search, showHUD: Bool = true, completion: EmptyCallback? = nil) {
+        
         func toggleHUD(visible: Bool = true) {
             guard showHUD else { return }
             HUD.toggle(to: visible, on: self)
@@ -100,22 +101,19 @@ private extension ImageSearchController {
         task?.cancelTask()
         toggleHUD()
         task = service.fetchFlickrPhoto(tag: search.keyword, page: search.pageNumber) { (result) in
+            
             switch result {
             case .success( let response):
                 guard let photos = response.body?.photos else {
                     // Error Handling here.
                     toggleHUD(visible: false)
+                    completion?()
                     return
                 }
                 
                 /** Increment only if the request was successfull */
                 self.currentSearch.incrementPage()
-                
-                
-                
                 toggleHUD(visible: false)
-                
-               
                 
                 DispatchQueue.main.async {
                     /** If this was a fresh search. Just clean existing data source array */
@@ -123,6 +121,7 @@ private extension ImageSearchController {
                         self.arrPhotos.removeAll()
                         self.arrPhotos.append(contentsOf: photos)
                         self.collectionView.reloadData()
+                        completion?()
                         return
                     }
                     
@@ -136,11 +135,16 @@ private extension ImageSearchController {
 
                         let indexPaths = Array(startIndex...endIndex).map { IndexPath(item: $0, section: 1) }
                         self.collectionView.insertItems(at: indexPaths)
-                    }, completion: nil)
+                        
+                        
+                    }){ iscomplete in
+                        completion?()
+                    }
                 }
                 
             case .failure (let err):
                 print("error: \(err.message)")
+                completion?()
                 toggleHUD(visible: false)
             }
         }
@@ -218,3 +222,46 @@ extension ImageSearchController: UICollectionViewDataSource, UICollectionViewDel
         return indexPath.section == 0 ? headerSize : cellSize
     }
 }
+
+
+
+
+
+//MARK:- Testable Hack
+
+
+/**
+ Note:
+ This is just a hack to make certain private properties accesible to the testing target.
+ 
+ Discussion:
+ We could easily make these properties internal. But changing the access-specifers just for the sake of testing din't seem right.
+ 
+ */
+#if DEBUG
+extension ImageSearchController {
+
+    var testable_collectionView: UICollectionView! {
+        return self.collectionView
+    }
+    
+    var testable_txtSearch : UITextField! {
+        return txtSearch
+    }
+    
+    var testable_btnGo : UIButton! {
+        return btnGo
+    }
+    
+    var testable_currentSearch: Search! {
+        return currentSearch
+    }
+    
+    
+    func testable_triggerSearch(_ search: Search, showHUD: Bool = true, completion: EmptyCallback?) {
+        triggerSearch(search, showHUD: showHUD, completion: completion)
+    }
+}
+
+
+#endif

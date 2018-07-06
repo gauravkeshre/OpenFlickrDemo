@@ -13,6 +13,7 @@ import UIKit
 extension UITextField {
 
     /** Adds an image in the `leftView` property of `UITextField`
+     
      - Parameters:
         - image: The UIImage that need to be set in the leftView.
         - tint: Desired tint color if the UIImage is rendered with template mode

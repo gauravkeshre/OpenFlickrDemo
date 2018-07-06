@@ -64,6 +64,7 @@ struct FlickrPhoto {
 }
 
 
+/** This is the umbrella type for the flickr api result */
 struct FlickrPhotosResult {
     let pageNumber: Int
     let numberOfPhotosPerPage: Int

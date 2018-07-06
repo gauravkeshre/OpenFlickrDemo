@@ -18,9 +18,11 @@ struct DecorationConstants{
 }
 
 
+/** A handly extension to add shadow and corner radius to a `UIView` at the same time.
+ - Discussion:
+    We create different sublayers for shadow and corner radius.
+*/
 extension UIView {
-    
-   
     
     func decorateWithCornerRadius(cornerRadius: CGFloat = DecorationConstants.ShadowRadius,
                                   borderColor: UIColor = DecorationConstants.ShadowColor,

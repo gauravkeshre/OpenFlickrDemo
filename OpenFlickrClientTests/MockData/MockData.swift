@@ -7,9 +7,9 @@
 //
 
 import Foundation
+@testable import OpenFlickrClient
 
 typealias JSONDictionary = [String: Any?]
-
 
 /** An enum to make it convenient to mock the data and organize it */
 enum MockData: String {
@@ -31,4 +31,11 @@ enum MockData: String {
         
         return jsonResult as! JSONDictionary
     }
+    
+    
+    static func imageResultModel(for mock: MockData) -> FlickrPhotosResult? {
+        let mockData = mock.jsonDictionary()
+        return FlickrPhotosResult.init(dictionary: mockData)
+    }
+
 }
